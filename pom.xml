@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.headsupdev</groupId>
+    <artifactId>headsupdev-parent</artifactId>
+    <version>1</version>
+  </parent>
+
+  <artifactId>headsupdev-java-support</artifactId>
+  <name>Heads Up Development : Java Support</name>
+  <version>1.0-SNAPSHOT</version>
+
+  <scm>
+    <connection>scm:git:git://github.com/headsupdev/headsupdev-java-support.git</connection>
+    <developerConnection>scm:git:git@github.com:headsupdev/headsupdev-java-support.git</developerConnection>
+    <url>http://headsupdev.org/headsupdev-java-support</url>
+  </scm>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <repositories>
+    <repository>
+      <id>headsupdev-release</id>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <url>dav:http://headsupdev.org/repository/release/</url>
+    </repository>
+  </repositories>
+
+  <distributionManagement>
+    <site>
+      <id>headsupdev-site</id>
+      <url>dav:http://headsupdev.org/repository/site/headsupdev-java-support</url>
+    </site>
+  </distributionManagement>  
+</project>
