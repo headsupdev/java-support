@@ -7,15 +7,25 @@
     <version>1</version>
   </parent>
 
-  <artifactId>headsupdev-java-support</artifactId>
-  <name>Heads Up Development : Java Support</name>
+  <artifactId>java-support</artifactId>
+  <name>Java Support</name>
   <version>1.0-SNAPSHOT</version>
 
   <scm>
     <connection>scm:git:git://github.com/headsupdev/headsupdev-java-support.git</connection>
     <developerConnection>scm:git:git@github.com:headsupdev/headsupdev-java-support.git</developerConnection>
-    <url>http://headsupdev.org/headsupdev-java-support</url>
+    <url>http://headsupdev.org/java-support/files</url>
   </scm>
+
+  <issueManagement>
+    <system>HeadsUp Agile</system>
+    <url>http://headsupdev.org/java-support/issues</url>
+  </issueManagement>
+
+  <ciManagement>
+    <system>HeadsUp Agile</system>
+    <url>http://headsupdev.org/java-support/builds</url>
+  </ciManagement>
 
   <dependencies>
     <dependency>
@@ -42,7 +52,17 @@
   <distributionManagement>
     <site>
       <id>headsupdev-site</id>
-      <url>dav:http://headsupdev.org/repository/site/headsupdev-java-support</url>
+      <url>dav:http://headsupdev.org/repository/site/java-support</url>
     </site>
   </distributionManagement>  
+
+  <contributors>
+    <contributor>
+      <name>Andrew Williams</name>
+      <email>andy@andywilliams.me</email>
+      <url>http://andywilliams.me</url>
+      <organization>Heads Up Development</organization>
+      <organizationUrl>http://headsupdev.com</organizationUrl>
+    </contributor>
+  </contributors>
 </project>
