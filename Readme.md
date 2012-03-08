@@ -11,6 +11,6 @@ A collection of Java utility classes from Heads Up Development.
 
 * Base64
 
-For more information please head to the project home page <http://headsupdev.org/java-support/>.
+For more information please head to the project home page <http://headsupdev.org/java-support/docs/maven-site>.
 
 
