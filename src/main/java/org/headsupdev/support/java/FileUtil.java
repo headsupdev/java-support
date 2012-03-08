@@ -96,6 +96,11 @@ public class FileUtil
     public static void mkdir( File file )
         throws IOException
     {
+        if ( file.exists() )
+        {
+            return;
+        }
+
         if ( !file.mkdir() )
         {
             throw new IOException( "Unable to create directory: " + file.getPath() );
@@ -111,6 +116,11 @@ public class FileUtil
     public static void mkdirs( File file )
         throws IOException
     {
+        if ( file.exists() )
+        {
+            return;
+        }
+
         if ( !file.mkdirs() )
         {
             throw new IOException( "Unable to create directory path: " + file.getPath() );
