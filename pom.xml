@@ -10,7 +10,7 @@
   <groupId>org.headsupdev.support</groupId>
   <artifactId>java-support</artifactId>
   <name>Java Support</name>
-  <version>1.2-SNAPSHOT</version>
+  <version>1.1-SNAPSHOT</version>
 
   <scm>
     <connection>scm:git:git://github.com/headsupdev/headsupdev-java-support.git</connection>
@@ -70,6 +70,15 @@
       <url>dav:http://headsupdev.org/repository/site/java-support</url>
     </site>
   </distributionManagement>  
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.7</version>
+      </plugin>
+    </plugins>
+  </reporting>
 
   <contributors>
     <contributor>
