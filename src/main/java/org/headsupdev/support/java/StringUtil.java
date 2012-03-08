@@ -16,8 +16,9 @@
 
 package org.headsupdev.support.java;
 
+import java.io.File;
+import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -98,6 +99,62 @@ public class StringUtil
     }
 
     /**
+     * Formats a string from a template using the passed parameters
+     *
+     * @see #format(String, java.util.Map)
+     * @param template      The source of the format string
+     * @param parameters    The parameters for substitution
+     * @return  Formatted string
+     */
+    public static String format( File template, Map<String, Object> parameters )
+    {
+        return format( FileUtil.toString( template ), parameters );
+    }
+
+    /**
+     * Formats a string from a template using the passed parameters
+     *
+     * @see #format(String, String, String, java.util.Map)
+     * @param template      The source of the format string
+     * @param prefix        Beginning identifier of a placeholder
+     * @param postfix       End identifier of a placeholder
+     * @param parameters    The parameters for substitution
+     * @return  Formatted string
+     */
+    public static String format( File template, String prefix, String postfix, Map<String, Object> parameters )
+    {
+        return format( FileUtil.toString( template ), prefix, postfix, parameters );
+    }
+
+    /**
+     * Formats a string from a template using the passed parameters
+     *
+     * @see #format(String, java.util.Map)
+     * @param template      The source of the format string
+     * @param parameters    The parameters for substitution
+     * @return  Formatted string
+     */
+    public static String format( InputStream template, Map<String, Object> parameters )
+    {
+        return format( IOUtil.toString( template ), parameters );
+    }
+
+    /**
+     * Formats a string from a template using the passed parameters
+     *
+     * @see #format(String, String, String, java.util.Map)
+     * @param template      The source of the format string
+     * @param prefix        Beginning identifier of a placeholder
+     * @param postfix       End identifier of a placeholder
+     * @param parameters    The parameters for substitution
+     * @return  Formatted string
+     */
+    public static String format( InputStream template, String prefix, String postfix, Map<String, Object> parameters )
+    {
+        return format( IOUtil.toString( template ), prefix, postfix, parameters );
+    }
+
+    /**
      * A string formatter using named placeholders.
      *
      * For example the string "Hello ${planet} could be transformed using a map of
@@ -107,9 +164,9 @@ public class StringUtil
      * Matching uses java's built in String.format to insert replacement values.
      * Any placeholder which is not found in the map will remain in the resulting string.
      *
-     * @param format        format of the resulting string
-     * @param parameters    input parameters for substitution
-     * @return formatted string
+     * @param format        Format of the resulting string
+     * @param parameters    Input parameters for substitution
+     * @return Formatted string
      */
     public static String format( String format, Map<String, Object> parameters )
     {
@@ -127,11 +184,11 @@ public class StringUtil
      * Matching uses java's built in String.format to insert replacement values.
      * Any placeholder which is not found in the map will remain in the resulting string.
      *
-     * @param format        format of the resulting string
-     * @param prefix        beginning identifier of a placeholder
-     * @param postfix       end identifier of a placeholder
-     * @param parameters    input parameters for substitution
-     * @return formatted string
+     * @param format        Format of the resulting string
+     * @param prefix        Beginning identifier of a placeholder
+     * @param postfix       End identifier of a placeholder
+     * @param parameters    Input parameters for substitution
+     * @return Formatted string
      */
     public static String format( String format, String prefix, String postfix, Map<String, Object> parameters )
     {
