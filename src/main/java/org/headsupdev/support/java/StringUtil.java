@@ -16,6 +16,10 @@
 
 package org.headsupdev.support.java;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
+
 /**
  * Various utility methods for working with strings
  *
@@ -91,5 +95,67 @@ public class StringUtil
         }
 
         return out.toString();
+    }
+
+    /**
+     * A string formatter using named placeholders.
+     *
+     * For example the string "Hello ${planet} could be transformed using a map of
+     * "planet" => "world" to "Hello world".
+     *
+     * The method replaces all occurrences of named placeholders with the matching value from the map.
+     * Matching uses java's built in String.format to insert replacement values.
+     * Any placeholder which is not found in the map will remain in the resulting string.
+     *
+     * @param format        format of the resulting string
+     * @param parameters    input parameters for substitution
+     * @return formatted string
+     */
+    public static String format( String format, Map<String, Object> parameters )
+    {
+        return format( format, "${", "}", parameters );
+    }
+
+    /**
+     * A string formatter using named placeholders.
+     *
+     * For example, given prefix "&lt;" and postfix "&gt;" the string "Hello &lt;planet&gt; could be
+     * transformed using a map of "planet" => "world" to "Hello world".
+     *
+     * The method replaces all occurrences of named placeholders (which start with the prefix and end
+     * with the post fix) with the matching value from the map.
+     * Matching uses java's built in String.format to insert replacement values.
+     * Any placeholder which is not found in the map will remain in the resulting string.
+     *
+     * @param format        format of the resulting string
+     * @param prefix        beginning identifier of a placeholder
+     * @param postfix       end identifier of a placeholder
+     * @param parameters    input parameters for substitution
+     * @return formatted string
+     */
+    public static String format( String format, String prefix, String postfix, Map<String, Object> parameters )
+    {
+        StringBuilder idFormat = new StringBuilder( format );
+        ArrayList<Object> values = new ArrayList<Object>();
+
+        int index = 1;
+        for( String key : parameters.keySet() )
+        {
+            String match = prefix + key + postfix;
+            String replace = "%" + index + "$s";
+
+            int pos = idFormat.indexOf( match );
+            while ( pos != -1 )
+            {
+                idFormat.replace( pos, pos + match.length(), replace );
+                pos += replace.length();
+                pos = idFormat.indexOf( match, pos );
+            }
+
+            values.add( parameters.get( key ) );
+            ++index;
+        }
+
+        return String.format( idFormat.toString(), values.toArray() );
     }
 }
