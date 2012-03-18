@@ -13,8 +13,8 @@
   <version>1.2-SNAPSHOT</version>
 
   <scm>
-    <connection>scm:git:git://github.com/headsupdev/headsupdev-java-support.git</connection>
-    <developerConnection>scm:git:git@github.com:headsupdev/headsupdev-java-support.git</developerConnection>
+    <connection>scm:git:git://github.com/headsupdev/java-support.git</connection>
+    <developerConnection>scm:git:git@github.com:headsupdev/java-support.git</developerConnection>
     <url>http://headsupdev.org/java-support/files</url>
   </scm>
 
