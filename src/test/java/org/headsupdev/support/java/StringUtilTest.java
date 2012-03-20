@@ -69,4 +69,12 @@ public class StringUtilTest
         String out = StringUtil.format( format, parameters );
         assertEquals( "Hello ${planet}", out );
     }
+
+    public void testEscaping()
+    {
+        String format = "My % percentage";
+
+        // this should not thrown an exception
+        String out = StringUtil.format( format, new HashMap<String, Object>() );
+    }
 }

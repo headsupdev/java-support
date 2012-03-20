@@ -192,7 +192,7 @@ public class StringUtil
      */
     public static String format( String format, String prefix, String postfix, Map<String, Object> parameters )
     {
-        StringBuilder idFormat = new StringBuilder( format );
+        StringBuilder idFormat = new StringBuilder( format.replace( "%", "%%" ) );
         ArrayList<Object> values = new ArrayList<Object>();
 
         int index = 1;
