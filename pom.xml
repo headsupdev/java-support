@@ -10,7 +10,7 @@
   <groupId>org.headsupdev.support</groupId>
   <artifactId>java-support</artifactId>
   <name>Java Support</name>
-  <version>1.1-SNAPSHOT</version>
+  <version>1.1</version>
 
   <scm>
     <connection>scm:git:git://github.com/headsupdev/java-support.git</connection>
