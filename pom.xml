@@ -4,13 +4,14 @@
   <parent>
     <groupId>org.headsupdev</groupId>
     <artifactId>headsupdev-parent</artifactId>
-    <version>1</version>
+    <version>2</version>
   </parent>
 
   <groupId>org.headsupdev.support</groupId>
   <artifactId>java-support</artifactId>
   <name>Java Support</name>
   <version>1.2-SNAPSHOT</version>
+  <url>http://headsupdev.org/java-support/docs</url>
 
   <scm>
     <connection>scm:git:git://github.com/headsupdev/java-support.git</connection>
@@ -37,20 +38,6 @@
     </dependency>
   </dependencies>
 
-  <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <configuration>
-            <source>1.5</source>
-            <target>1.5</target>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
-
   <repositories>
     <repository>
       <id>headsupdev-release</id>
@@ -70,23 +57,4 @@
       <url>dav:http://headsupdev.org/repository/site/java-support</url>
     </site>
   </distributionManagement>  
-
-  <reporting>
-    <plugins>
-      <plugin>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.7</version>
-      </plugin>
-    </plugins>
-  </reporting>
-
-  <contributors>
-    <contributor>
-      <name>Andrew Williams</name>
-      <email>andy@andywilliams.me</email>
-      <url>http://andywilliams.me</url>
-      <organization>Heads Up Development</organization>
-      <organizationUrl>http://headsupdev.com</organizationUrl>
-    </contributor>
-  </contributors>
 </project>
