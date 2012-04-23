@@ -40,53 +40,107 @@ public class DateUtil
 
     /**
      * Convenience wrapper for assuming the start of the week is monday
+     *
      * @param calendar
-     * @return
+     * @return a date object set to the start of current week, eg. yyyy-mm-dd 00:00:00 000
      */
-    public static Date getStartOfWeek( Calendar calendar )
+    public static Date getStartOfWeekCurrent( Calendar calendar )
     {
-        return getStartOfWeek( calendar, Calendar.MONDAY );
+        return getStartOfWeekCurrent( calendar, Calendar.MONDAY );
     }
 
     /**
-     *
      * @param calendar
      * @param dayStartOfWeek this is the same constants as Calendar.MONDAY etc
-     * @return a date object set to the start of the week, eg. 2012-02-14 00:00:00 000
+     * @return a date object set to the start of current week, eg. yyyy-mm-dd 00:00:00 000
      */
-    public static Date getStartOfWeek( Calendar calendar, int dayStartOfWeek )
+    public static Date getStartOfWeekCurrent( Calendar calendar, int dayStartOfWeek )
     {
-        ensureStateValid( calendar );
+        return getStartOfWeek( calendar, new Date(), dayStartOfWeek );
+    }
 
-        calendar.setTime( new Date() );
+    /**
+     * convenience wrapper assuming the start of the week is monday
+     *
+     * @param calendar
+     * @param date
+     * @return a date object set to the start of the week, eg. yyyy-mm-dd 00:00:00 000
+     */
+    public static Date getStartOfWeek( Calendar calendar, Date date )
+    {
+        return getStartOfWeek( calendar, date, Calendar.MONDAY );
+    }
+
+    /**
+     * this will return the start of the week for any date passed in
+     *
+     * @param calendar
+     * @param date
+     * @param dayStartOfWeek this is the same constants as Calendar.MONDAY etc
+     * @return a date object set to the start of the week, eg. yyyy-mm-dd 00:00:00 000
+     */
+    public static Date getStartOfWeek( Calendar calendar, Date date, int dayStartOfWeek )
+    {
+        ensureStateValid( calendar, date );
+
+        calendar.setTime( date );
+        setDateToZeroHour( calendar );
         while ( calendar.get( Calendar.DAY_OF_WEEK ) != dayStartOfWeek )
         {
-            calendar.add( Calendar.DAY_OF_YEAR, -1 );
+            calendar.add( Calendar.DATE, -1 );
         }
-        setDateToZeroHour( calendar );
         return calendar.getTime();
     }
 
     /**
      * convenience wrapper assuming the start of the week is monday
+     *
      * @param calendar
-     * @return
+     * @return a date object set to the end of current week, eg. yyyy-mm-dd 23:59:59 999
      */
-    public static Date getEndOfWeek( Calendar calendar )
+    public static Date getEndOfWeekCurrent( Calendar calendar )
     {
-        return getEndOfWeek( calendar, Calendar.MONDAY );
+        return getEndOfWeekCurrent( calendar, Calendar.MONDAY );
     }
 
     /**
-     *
      * @param calendar
      * @param dayStartOfWeek this is the same constants as Calendar.MONDAY etc
-     * @return a date object set to the end of the week, eg. 2012-02-14 24:00:00 000
+     * @return a date object set to the end of current week, eg. yyyy-mm-dd 23:59:59 999
      */
-    public static Date getEndOfWeek( Calendar calendar, int dayStartOfWeek )
+    public static Date getEndOfWeekCurrent( Calendar calendar, int dayStartOfWeek )
     {
-        getStartOfWeek( calendar, dayStartOfWeek );
-        calendar.add( Calendar.WEEK_OF_YEAR, 1 );
+        return getEndOfWeek( calendar, new Date(), dayStartOfWeek );
+    }
+
+    /**
+     * convenience wrapper assuming the start of the week is monday
+     *
+     * @param calendar
+     * @param date
+     * @return a date object set to the end of the week, eg. yyyy-mm-dd 23:595:59 999
+     */
+    public static Date getEndOfWeek( Calendar calendar, Date date )
+    {
+        return getEndOfWeek( calendar, date, Calendar.MONDAY );
+    }
+
+    /**
+     * @param calendar
+     * @param date
+     * @param dayStartOfWeek this is the same constants as Calendar.MONDAY etc
+     * @return a date object set to the end of the week, eg. yyyy-mm-dd 23:59:59 999
+     */
+    public static Date getEndOfWeek( Calendar calendar, Date date, int dayStartOfWeek )
+    {
+        ensureStateValid( calendar, date );
+        calendar.setTime( date );
+        setDateToZeroHour( calendar );
+        do
+        {
+            calendar.add( Calendar.DATE, 1 );
+        }
+        while ( calendar.get( Calendar.DAY_OF_WEEK ) != dayStartOfWeek );
         calendar.add( Calendar.MILLISECOND, -1 );
         return calendar.getTime();
     }
@@ -103,8 +157,9 @@ public class DateUtil
 
     /**
      * Both arguments are required and will throw exception if either are null
+     *
      * @param calendar
-     * @param date for which we require the beginning of
+     * @param date     for which we require the beginning of
      * @return
      */
     public static Date getStartOfDate( Calendar calendar, Date date )
@@ -118,6 +173,7 @@ public class DateUtil
 
     /**
      * Both arguments are required and will throw exception if either are null
+     *
      * @param calendar
      * @param date
      * @return
@@ -125,7 +181,7 @@ public class DateUtil
     public static Date getEndOfDate( Calendar calendar, Date date )
     {
         getStartOfDate( calendar, date );
-        calendar.add( Calendar.DAY_OF_YEAR, 1 );
+        calendar.add( Calendar.DATE, 1 );
         calendar.add( Calendar.MILLISECOND, -1 );
         return calendar.getTime();
     }
