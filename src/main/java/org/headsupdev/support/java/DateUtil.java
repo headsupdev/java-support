@@ -85,7 +85,9 @@ public class DateUtil
      */
     public static Date getEndOfWeek( Calendar calendar, int dayStartOfWeek )
     {
-        getStartOfWeek( calendar, dayStartOfWeek );
+        ensureStateValid( calendar );
+        calendar.setTime( new Date() );
+        setDateToZeroHour( calendar );
 
         do
         {
