@@ -40,6 +40,7 @@ public class DateUtil
 
     /**
      * Convenience wrapper for assuming the start of the week is monday
+     *
      * @param calendar
      * @return
      */
@@ -49,7 +50,6 @@ public class DateUtil
     }
 
     /**
-     *
      * @param calendar
      * @param dayStartOfWeek this is the same constants as Calendar.MONDAY etc
      * @return a date object set to the start of the week, eg. 2012-02-14 00:00:00 000
@@ -59,16 +59,17 @@ public class DateUtil
         ensureStateValid( calendar );
 
         calendar.setTime( new Date() );
+        setDateToZeroHour( calendar );
         while ( calendar.get( Calendar.DAY_OF_WEEK ) != dayStartOfWeek )
         {
-            calendar.add( Calendar.DAY_OF_YEAR, -1 );
+            calendar.add( Calendar.DATE, -1 );
         }
-        setDateToZeroHour( calendar );
         return calendar.getTime();
     }
 
     /**
      * convenience wrapper assuming the start of the week is monday
+     *
      * @param calendar
      * @return
      */
@@ -78,7 +79,6 @@ public class DateUtil
     }
 
     /**
-     *
      * @param calendar
      * @param dayStartOfWeek this is the same constants as Calendar.MONDAY etc
      * @return a date object set to the end of the week, eg. 2012-02-14 24:00:00 000
@@ -86,7 +86,12 @@ public class DateUtil
     public static Date getEndOfWeek( Calendar calendar, int dayStartOfWeek )
     {
         getStartOfWeek( calendar, dayStartOfWeek );
-        calendar.add( Calendar.WEEK_OF_YEAR, 1 );
+
+        do
+        {
+            calendar.add( Calendar.DATE, 1 );
+        }
+        while ( calendar.get( Calendar.DAY_OF_WEEK ) != dayStartOfWeek );
         calendar.add( Calendar.MILLISECOND, -1 );
         return calendar.getTime();
     }
@@ -103,8 +108,9 @@ public class DateUtil
 
     /**
      * Both arguments are required and will throw exception if either are null
+     *
      * @param calendar
-     * @param date for which we require the beginning of
+     * @param date     for which we require the beginning of
      * @return
      */
     public static Date getStartOfDate( Calendar calendar, Date date )
@@ -118,6 +124,7 @@ public class DateUtil
 
     /**
      * Both arguments are required and will throw exception if either are null
+     *
      * @param calendar
      * @param date
      * @return
@@ -125,7 +132,7 @@ public class DateUtil
     public static Date getEndOfDate( Calendar calendar, Date date )
     {
         getStartOfDate( calendar, date );
-        calendar.add( Calendar.DAY_OF_YEAR, 1 );
+        calendar.add( Calendar.DATE, 1 );
         calendar.add( Calendar.MILLISECOND, -1 );
         return calendar.getTime();
     }
