@@ -88,6 +88,43 @@ public class FileUtil
     }
 
     /**
+     * Get the extension from a file's name, if one exists.
+     * Returns null if the file is null or there is no extension.
+     * The extension is defined as the text following the last '.' in the file name.
+     *
+     * @param file The file to get the extension of
+     * @return The file's extension or null if none
+     */
+    public static String getExtension( File file )
+    {
+        return getExtension( file.getName() );
+    }
+
+    /**
+     * Get the extension from a given filename, if one exists.
+     * Returns null if the name is null or there is no extension.
+     * The extension is defined as the text following the last '.' in the filename.
+     *
+     * @param fileName The filename to get the extension from
+     * @return The file's extension or null if none
+     */
+    public static String getExtension( String fileName )
+    {
+        if ( fileName == null )
+        {
+            return null;
+        }
+
+        int pos = fileName.lastIndexOf( '.' );
+        if ( pos == -1 || pos == fileName.length() - 1 )
+        {
+            return null;
+        }
+
+        return fileName.substring( pos + 1 );
+    }
+
+    /**
      * Make the specified directory, throwing an exception if it could not be created.
      *
      * @param file The directory to create
