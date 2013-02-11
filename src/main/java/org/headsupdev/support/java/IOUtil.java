@@ -151,7 +151,20 @@ public class IOUtil
      */
     public static String toString( InputStream in )
     {
-        return IOUtil.toString( new BufferedReader( new InputStreamReader( in, Charset.forName( "UTF-8" ) ) ) );
+        return toString( in, 0 );
+    }
+
+    /**
+     * Read the contents of the given stream to a string.
+     * Character conversions will be performed using the UTF-8 character set.
+     *
+     * @param in The input stream to read
+     * @param limit Don't read more than limit number of bytes
+     * @return A string representation of the contents, parsed using UTF-8
+     */
+    public static String toString( InputStream in, long limit )
+    {
+        return IOUtil.toString( new BufferedReader( new InputStreamReader( in, Charset.forName( "UTF-8" ) ) ), limit );
     }
 
     /**
@@ -162,20 +175,39 @@ public class IOUtil
      */
     public static String toString( Reader in )
     {
-        return IOUtil.toString( new BufferedReader( in ) );
+        return toString( in, 0 );
     }
 
-    private static String toString( BufferedReader in )
+    /**
+     * Read the contents of the given reader to a string.
+     *
+     * @param in The reader to read
+     * @param limit Don't read more than limit number of characters
+     * @return A string representation of the contents
+     */
+    public static String toString( Reader in, long limit )
+    {
+        return IOUtil.toString( new BufferedReader( in ), limit );
+    }
+
+    private static String toString( BufferedReader in, long limit )
     {
         StringBuffer out = new StringBuffer();
 
+        long total = 0;
         try
         {
             String line;
             while ( ( line = in.readLine() ) != null )
             {
+                if ( limit > 0 && total + line.length() > limit )
+                {
+                    break;
+                }
                 out.append( line );
                 out.append( '\n' );
+
+                total += line.length() + 1;
             }
         }
         catch ( IOException e )
