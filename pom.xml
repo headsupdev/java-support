@@ -10,7 +10,7 @@
   <groupId>org.headsupdev.support</groupId>
   <artifactId>java-support</artifactId>
   <name>Java Support</name>
-  <version>1.5</version>
+  <version>1.6-SNAPSHOT</version>
   <url>http://headsupdev.org/java-support/docs</url>
 
   <scm>
