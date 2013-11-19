@@ -52,4 +52,20 @@ public class CollectionUtilTest
 
         assertEquals( items, CollectionUtil.uniqueList( items ) );
     }
+
+    public void testIsEmpty()
+    {
+        assertTrue( CollectionUtil.isEmpty( null ) );
+        assertTrue( CollectionUtil.isEmpty( Arrays.asList( ) ) );
+
+        assertFalse( CollectionUtil.isEmpty( Arrays.asList( "string" ) ) );
+    }
+
+    public void testIsNotEmpty()
+    {
+        assertTrue( CollectionUtil.isNotEmpty( Arrays.asList( "string" ) ) );
+
+        assertFalse( CollectionUtil.isNotEmpty( null ) );
+        assertFalse( CollectionUtil.isNotEmpty( Arrays.asList( ) ) );
+    }
 }

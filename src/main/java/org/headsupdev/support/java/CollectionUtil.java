@@ -17,6 +17,7 @@
 package org.headsupdev.support.java;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -50,5 +51,29 @@ public class CollectionUtil
         }
 
         return unique;
+    }
+
+    /**
+     * Discover if the passed collection is empty.
+     * An empty collection is one that is either null or contains no elements.
+     *
+     * @param collection The collection to test
+     * @return true if the collection is null or contains no elements
+     */
+    public static <T> boolean isEmpty( Collection<T> collection )
+    {
+        return collection == null || collection.isEmpty();
+    }
+
+    /**
+     * Discover if the passed collection is not empty.
+     * A non-empty collection is one that is not null and contains at least one element.
+     *
+     * @param collection The collection to test
+     * @return true if the collection is non-null and contains elements
+     */
+    public static <T> boolean isNotEmpty( Collection<T> collection )
+    {
+        return !isEmpty( collection );
     }
 }
