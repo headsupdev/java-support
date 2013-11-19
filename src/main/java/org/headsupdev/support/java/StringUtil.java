@@ -53,6 +53,19 @@ public class StringUtil
     }
 
     /**
+     * Discover if the passed string is non-empty.
+     * A non-empty string is one that is greater than zero characters in length and does not contain only whitespace.
+     * A null string is considered as empty and so will return false.
+     *
+     * @param string The string to test
+     * @return true if the string is not null, is of non-zero length and contains more than whitespace.
+     */
+    public static boolean isNotEmpty( String string )
+    {
+        return !isEmpty( string );
+    }
+
+    /**
      * Convert the string to title case - that is a string that starts with an upper case letter and all other
      * characters are in lower case.
      *

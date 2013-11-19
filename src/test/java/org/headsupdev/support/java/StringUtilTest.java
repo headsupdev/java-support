@@ -77,4 +77,28 @@ public class StringUtilTest
         // this should not thrown an exception
         String out = StringUtil.format( format, new HashMap<String, Object>() );
     }
+
+    public void testIsEmpty()
+    {
+        assertTrue( StringUtil.isEmpty( "" ) );
+        assertTrue( StringUtil.isEmpty( null ) );
+        assertTrue( StringUtil.isEmpty( " " ) );
+        assertTrue( StringUtil.isEmpty( "\t" ) );
+        assertTrue( StringUtil.isEmpty( "\n\r" ) );
+
+        assertFalse( StringUtil.isEmpty( "nr" ) );
+        assertFalse( StringUtil.isEmpty( " a " ) );
+    }
+
+    public void testIsNotEmpty()
+    {
+        assertTrue( StringUtil.isNotEmpty( "nr" ) );
+        assertTrue( StringUtil.isNotEmpty( " a " ) );
+
+        assertFalse( StringUtil.isNotEmpty( "" ) );
+        assertFalse( StringUtil.isNotEmpty( null ) );
+        assertFalse( StringUtil.isNotEmpty( " " ) );
+        assertFalse( StringUtil.isNotEmpty( "\t" ) );
+        assertFalse( StringUtil.isNotEmpty( "\n\r" ) );
+    }
 }
