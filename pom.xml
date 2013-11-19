@@ -10,13 +10,14 @@
   <groupId>org.headsupdev.support</groupId>
   <artifactId>java-support</artifactId>
   <name>Java Support</name>
-  <version>1.6-SNAPSHOT</version>
+  <version>1.6</version>
   <url>http://headsupdev.org/java-support/docs</url>
 
   <scm>
     <connection>scm:git:git://github.com/headsupdev/java-support.git</connection>
     <developerConnection>scm:git:git@github.com:headsupdev/java-support.git</developerConnection>
     <url>http://headsupdev.org/java-support/files</url>
+    <tag>java-support-1.6</tag>
   </scm>
 
   <issueManagement>
