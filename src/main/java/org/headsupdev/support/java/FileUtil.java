@@ -187,7 +187,8 @@ public class FileUtil
     public static void delete( File file, boolean recurse )
         throws IOException
     {
-        if ( !file.exists() )
+        // check if the file exists only if it's actually a file (symlink issue)
+        if ( file.isFile() && !file.exists() )
         {
             return;
         }
