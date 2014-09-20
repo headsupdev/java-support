@@ -172,7 +172,7 @@ public class StringUtil
      * A string formatter using named placeholders.
      *
      * For example the string "Hello ${planet} could be transformed using a map of
-     * "planet" => "world" to "Hello world".
+     * "planet" =&gt; "world" to "Hello world".
      *
      * The method replaces all occurrences of named placeholders with the matching value from the map.
      * Matching uses java's built in String.format to insert replacement values.
@@ -191,7 +191,7 @@ public class StringUtil
      * A string formatter using named placeholders.
      *
      * For example, given prefix "&lt;" and postfix "&gt;" the string "Hello &lt;planet&gt; could be
-     * transformed using a map of "planet" => "world" to "Hello world".
+     * transformed using a map of "planet" =&gt; "world" to "Hello world".
      *
      * The method replaces all occurrences of named placeholders (which start with the prefix and end
      * with the post fix) with the matching value from the map.

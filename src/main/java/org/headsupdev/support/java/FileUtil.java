@@ -29,7 +29,6 @@ public class FileUtil
 {
     /**
      * Create a temporary directory similar to the <code>File.createTempFile( String prefix, String suffix )</code> method.
-     * For detailed usage see the entry on {@see File#createTempFile(String,String)}.
      *
      * This method provides only part of a temporary-file facility.
      * To arrange for a file created by this method to be deleted automatically,
@@ -49,7 +48,6 @@ public class FileUtil
 
     /**
      * Create a temporary directory similar to the <code>File.createTempFile( String prefix, String suffix, File directory )</code> method.
-     * For detailed usage see the entry on {@see File#createTempFile(String,String,File)}.
      *
      * This method provides only part of a temporary-file facility.
      * To arrange for a file created by this method to be deleted automatically,

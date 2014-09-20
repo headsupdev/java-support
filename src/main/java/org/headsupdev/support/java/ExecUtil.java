@@ -21,7 +21,7 @@ import java.util.List;
 
 /**
  * A utility class that handles with the streaming data and resource management when executing commands.
- * <p/>
+ *
  * Created: 12/04/2013
  *
  * @author Andrew Williams
