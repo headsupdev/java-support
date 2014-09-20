@@ -23,7 +23,7 @@ import java.util.List;
 
 /**
  * Test methods for the collection utilities.
- * <p/>
+ *
  * Created: 19/11/2013
  *
  * @author Andrew Williams

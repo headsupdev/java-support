@@ -23,7 +23,7 @@ import java.util.Date;
 
 /**
  * TODO Add documentation
- * <p/>
+ *
  * Created: 20/04/2012
  *
  * @author roberthewitt
