@@ -18,8 +18,7 @@ package org.headsupdev.support.java;
 
 import junit.framework.TestCase;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Tests for the StringUtil class
@@ -100,5 +99,30 @@ public class StringUtilTest
         assertFalse( StringUtil.isNotEmpty( " " ) );
         assertFalse( StringUtil.isNotEmpty( "\t" ) );
         assertFalse( StringUtil.isNotEmpty( "\n\r" ) );
+    }
+
+    public void testJoinCollection()
+    {
+        Collection<String> collection = new HashSet<String>();
+        collection.add( "a" );
+        collection.add( "b" );
+        collection.add( "c" );
+        String joined = StringUtil.join( collection, "-" );
+        assertEquals( 3, joined.split( "-" ).length );
+        assertTrue( joined.contains( "a" ) );
+        assertTrue( joined.contains( "b" ) );
+        assertTrue( joined.contains( "c" ) );
+
+        assertEquals( "", StringUtil.join( new ArrayList<String>(), "," ) );
+        assertEquals( ",,", StringUtil.join( Arrays.asList( "", "", "" ), "," ) );
+    }
+
+    public void testJoinList()
+    {
+        List<String> list = Arrays.asList( "a", "b", "c" );
+        assertEquals( "a,b,c", StringUtil.join( list, "," ) );
+
+        list = Arrays.asList( "d", "a", "b", "c" );
+        assertEquals( "d,a,b,c", StringUtil.join( list, "," ) );
     }
 }

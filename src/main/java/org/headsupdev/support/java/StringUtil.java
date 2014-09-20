@@ -19,6 +19,7 @@ package org.headsupdev.support.java;
 import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Map;
 
 /**
@@ -227,5 +228,23 @@ public class StringUtil
         }
 
         return String.format( idFormat.toString(), values.toArray() );
+    }
+
+    public static String join( Collection<String> items, String join )
+    {
+        StringBuilder list = new StringBuilder();
+        boolean first = true;
+        for ( String type : items )
+        {
+            if ( !first )
+            {
+                list.append( join );
+            }
+
+            list.append( type );
+            first = false;
+        }
+
+        return list.toString();
     }
 }
