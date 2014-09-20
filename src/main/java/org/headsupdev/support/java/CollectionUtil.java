@@ -32,6 +32,7 @@ public class CollectionUtil
      * Make a copy of a list where the items are unique.
      *
      * @param list The list which may contain duplicates
+     * @return A new list containing only the unique items of the input list
      */
     public static <T> List<T> uniqueList( List<T> list )
     {

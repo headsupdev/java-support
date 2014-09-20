@@ -230,6 +230,14 @@ public class StringUtil
         return String.format( idFormat.toString(), values.toArray() );
     }
 
+    /**
+     * Join elements of a String collection into a single string.
+     * The provided join String is used to between each item (i.e. ",")
+     *
+     * @param items the String items to serialise into a string
+     * @param join the String used between each string item in the list
+     * @return A single string where the items are appended together with "join" seperators
+     */
     public static String join( Collection<String> items, String join )
     {
         StringBuilder list = new StringBuilder();
